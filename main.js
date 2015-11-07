@@ -11,9 +11,12 @@ http.get(url, function(res){
 
     res.on('end', function(){
         var responseB = JSON.parse(body);
-        console.log("Got a response: ", responseB);
-        console.log(responseB)
+        var responseBStr = JSON.stringify(body);
+        var jsonB = JSON.parse(responseBStr);
+        console.log(responseB);
+        console.log(responseBStr);
+        console.log(jsonB);
     });
 }).on('error', function(e){
-      console.log("Got an error: ", e);
+      console.log("Error: ", e);
 });
