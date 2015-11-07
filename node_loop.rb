@@ -1,7 +1,7 @@
 loop do
   output = `node main.js`
-    puts "executing"
+  puts "executing"
   p output
-  sleep(10)
-  puts "restarting"
+  sleep(180)
+  puts "fetching again"
 end

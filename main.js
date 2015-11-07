@@ -11,11 +11,12 @@ http.get(url, function(res){
 
     res.on('end', function(){
         var responseB = JSON.parse(body);
-        var responseBStr = JSON.stringify(body);
-        var jsonB = JSON.parse(responseBStr);
-        console.log(responseB);
-        console.log(responseBStr);
-        console.log(jsonB);
+
+        var variable1 = responseB[0].cohort;
+        var variable2 = responseB[0].teacher;
+
+        console.log(variable1);
+        console.log(variable2);
     });
 }).on('error', function(e){
       console.log("Error: ", e);
