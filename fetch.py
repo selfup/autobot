@@ -6,19 +6,21 @@ from bridgeclient import BridgeClient as bridgeclient
 
 endpoint_url = "http://intelyzine.com/api/v1/classroom_bs"
 
-r = requests.get(endpoint_url)
 count  = 0
 
 value = bridgeclient()
 
 while (count < 100):
-  print r.status_code
+  r = requests.get(endpoint_url)
 
-  teach = r.json()[0]['teacher']
+  teacher = r.json()[0]['teacher']
   cohort = r.json()[0]['cohort']
 
+  print r.status_code
   print teacher
   print cohort
-  value.put(teacher)
-  value.put(cohort)
+
+  value.put("teacher",(teacher))
+  value.put("cohort",(cohort))
+
   time.sleep(10)
