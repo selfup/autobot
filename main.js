@@ -1,6 +1,6 @@
 var http = require('http');
 
-var url = 'http://intelyzine.com/api/v1/classroom_bs';
+var url = 'some_url';
 var five = require("johnny-five");
 var board = new five.Board();
 
@@ -14,9 +14,7 @@ var makeRequest = function(onEnd) {
 
     res.on('end', function(){
       var responseB = JSON.parse(body);
-      console.log(responseB[0].cohort);
-      console.log(responseB[0].teacher);
-      onEnd(responseB[0]);
+      onEnd(responseB);
     });
   });
 };
@@ -33,11 +31,11 @@ board
       makeRequest(function(klass) {
         // "blink" the led in 500ms
         // on-off phase periods
-        if (klass.cohort === "1507" ) {
+        if responseB.cohort === "Ping" {
           led.blink(6000);
         };
       })
     }
     var second = 1000;
-    setInterval(run, 10*second)
+    setInterval(run, 15*second)
   });

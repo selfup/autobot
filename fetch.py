@@ -4,7 +4,7 @@ sys.path.insert(0, '/usr/lib/python2.7/bridge/')
 
 from bridgeclient import BridgeClient as bridgeclient
 
-endpoint_url = "http://intelyzine.com/api/v1/classroom_bs"
+endpoint_url = "some_url"
 
 count  = 0
 
@@ -13,8 +13,8 @@ value = bridgeclient()
 while (count < 100):
   r = requests.get(endpoint_url)
 
-  teacher = r.json()[0]['teacher']
-  cohort = r.json()[0]['cohort']
+  teacher = r.json()['teacher']
+  cohort = r.json()['cohort']
 
   print r.status_code
   print teacher
