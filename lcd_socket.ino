@@ -16,7 +16,6 @@ void setup() {
   Bridge.begin();
   server.listenOnLocalhost();
   server.begin();
-   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
 }
 
@@ -27,36 +26,17 @@ void loop() {
   digitalWrite(13, HIGH);
   delay(1000);
 
-  char teacher[10];
-  char cohort[10];
+  char teacher[16];
+  char cohort[16];
 
-  Bridge.get("teacher", teacher, 10);
-  Bridge.get("cohort", cohort, 10);
+  Bridge.get("teacher", teacher, 16);
+  Bridge.get("cohort", cohort, 16);
 
   delay(500);
 
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 0);
   lcd.print(teacher);
-  lcd.print(" - ");
+  lcd.setCursor(0, 1);
   lcd.print(cohort);
-
-}#include <Bridge.h>
-#include <YunServer.h>
-#include <YunClient.h>
-
-
-YunServer server;
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(13,OUTPUT);
-  Bridge.begin();
-  server.listenOnLocalhost();
-  server.begin();
-}
-
-void loop() {
-
-  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
 
 }
