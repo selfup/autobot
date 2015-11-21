@@ -1,8 +1,8 @@
 mport requests, json, time, sys
 
-sys.path.insert(0, '/usr/lib/python2.7/bridge/')
+sys.path.insert(0, '/usr/lib/python2.7/')
 
-from bridgeclient import BridgeClient as bridgeclient
+from bridge.bridgeclient import BridgeClient as bridgeclient
 
 endpoint_url = "http://intelyzine.com/api/v1/classroom_as"
 
