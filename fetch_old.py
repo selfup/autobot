@@ -32,7 +32,7 @@ while (count < 100):
             value.put("cohort",(cohort))
 
             time.sleep(10)
-  except ConnectionError as e:
+    except ConnectionError as e:
             print "No Interwebz  "
             print "PANICMODE INIT"
 
