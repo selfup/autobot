@@ -3,7 +3,7 @@ sys.path.insert(0, '/usr/lib/python2.7/')
 from bridge.bridgeclient import BridgeClient as bridgeclient
 from requests.exceptions import ConnectionError
 
-endpoint_url = "http://intelyzine.com/api/v1/classroom_as"
+endpoint_url = "some_url"
 count  = 0
 value = bridgeclient()
 
@@ -14,8 +14,8 @@ while (count < 100):
       print "Server is Down"
       print "200 NOT OK :( "
 
-      value.put("teacher",("No Interwebz  "))
-      value.put("cohort",("Not 200 OK    "))
+      value.put("teacher",("Server is Down"))
+      value.put("cohort",("200 NOT OK :( "))
 
       time.sleep(10)
     else:
@@ -34,9 +34,9 @@ while (count < 100):
       time.sleep(10)
   except ConnectionError as e:
       print "No Interwebz  "
-      print "Internet Down "
+      print "PANICMODE INIT"
 
       value.put("teacher",("No Interwebz  "))
-      value.put("cohort",("Internet Down "))
+      value.put("cohort",("PANICMODE INIT"))
 
       time.sleep(10)
