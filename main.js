@@ -20,7 +20,7 @@ const makeRequest = onEnd => {
 
 board
   .on('error', e => {
-    console.log(`Error:  ${e}`)
+    console.log(`Error: ${e}`)
   })
   .on('ready', () => {
     const led = new five.Led(13)
