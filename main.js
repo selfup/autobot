@@ -27,9 +27,7 @@ board
 
     function run() {
       makeRequest(function(klass) {
-        if (responseB.cohort === "Ping") {
-          led.blink(6000)
-        }
+        if (responseB.cohort === "Ping") led.blink(6000)
       })
     }
 
