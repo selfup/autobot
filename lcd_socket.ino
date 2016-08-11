@@ -20,7 +20,6 @@ void setup() {
 }
 
 void loop() {
-
   digitalWrite(13, LOW);
   delay(3000);
   digitalWrite(13, HIGH);
@@ -38,5 +37,4 @@ void loop() {
   lcd.print(teacher);
   lcd.setCursor(0, 1);
   lcd.print(cohort);
-
 }
