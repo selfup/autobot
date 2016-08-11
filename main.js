@@ -25,7 +25,7 @@ board
   .on('ready', () => {
     const led = new five.Led(13)
 
-    function run() {
+    run => {
       makeRequest(function(klass) {
         if (responseB.cohort === "Ping") led.blink(6000)
       })
