@@ -1,41 +1,39 @@
-var http = require('http');
+const http = require('http')
+const url = 'some_url'
+const five = require('johnny-five')
+const board = new five.Board()
 
-var url = 'some_url';
-var five = require("johnny-five");
-var board = new five.Board();
+const makeRequest = onEnd => {
+  http.get(url, res => {
+    let body = ''
 
-var makeRequest = function(onEnd) {
-  http.get(url, function(res){
-    var body = '';
+    res.on('data', chunk => {
+      body += chunk
+    })
 
-    res.on('data', function(chunk){
-      body += chunk;
-    });
-
-    res.on('end', function(){
-      var responseB = JSON.parse(body);
-      onEnd(responseB);
-    });
-  });
-};
+    res.on('end', () => {
+      const responseB = JSON.parse(body)
+      onEnd(responseB)
+    })
+  })
+}
 
 board
-  .on('error', function(e){
-    console.log("Error: ", e);
+  .on('error', e => {
+    console.log(`Error:  ${e}`)
   })
-  .on("ready", function() {
-    // Create a standard `led` component instance
-    var led = new five.Led(13);
+  .on('ready', () => {
+    const led = new five.Led(13)
 
     function run() {
       makeRequest(function(klass) {
-        // "blink" the led in 500ms
-        // on-off phase periods
-        if responseB.cohort === "Ping" {
-          led.blink(6000);
-        };
+        if (responseB.cohort === "Ping") {
+          led.blink(6000)
+        }
       })
     }
-    var second = 1000;
+
+    const second = 1000
+
     setInterval(run, 15*second)
-  });
+  })
