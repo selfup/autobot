@@ -10,7 +10,6 @@ value = bridgeclient()
 while (count < 100):
     try:
         if (requests.get(endpoint_url).status_code) != 200:
-
             print "Server is Down"
             print "200 NOT OK :( "
 
@@ -33,10 +32,10 @@ while (count < 100):
 
             time.sleep(10)
     except ConnectionError as e:
-            print "No Interwebz  "
-            print "PANICMODE INIT"
+        print "No Interwebz  "
+        print "PANICMODE INIT"
 
-            value.put("teacher",("No Interwebz  "))
-            value.put("cohort",("PANICMODE INIT"))
+        value.put("teacher",("No Interwebz  "))
+        value.put("cohort",("PANICMODE INIT"))
 
-            time.sleep(10)
+        time.sleep(10)
